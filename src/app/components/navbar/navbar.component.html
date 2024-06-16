@@ -50,8 +50,8 @@
 
 
   <div class="col-md-3 text-end me-2" *ngIf="!isLogin">
-    <button type="button" class="btn btn-outline-primary me-2">Login</button>
-    <button type="button" class="btn btn-primary">Sign-up</button>
+    <button type="button" class="btn btn-outline-dark me-2"  (click)="login()" >Login</button>
+    <button type="button" class="btn btn-outline-dark me-2" (click)="signup()">Sign-up</button>
   </div>
 
   <div class="col-md-3 text-end me-2 " *ngIf="isLogin">

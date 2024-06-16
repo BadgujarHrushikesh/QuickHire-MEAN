@@ -22,3 +22,7 @@ a {
 .card-radius{
     border-radius: 1.5rem;
 }
+
+.text-dark .fw-bold{
+    cursor: pointer;
+}

@@ -9,6 +9,7 @@ import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { PagesComponent } from './pages/pages.component';
+import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
 
 
 export const routes: Routes = [
@@ -25,7 +26,7 @@ export const routes: Routes = [
         },
         {
             path: 'forget-password',
-            component: SignupComponent
+            component: ForgetPasswordComponent
         },
         {
             path: '**',
