@@ -35,17 +35,17 @@
 
 </header> -->
 
-<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2 mb-3 border-bottom">
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2  border-bottom sticky-top bg-navbar-color">
   <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
     <img src="../../../assets/Icon.png" alt="" height="50" width="50" class="mx-2">
     <span class="fs-4 ms-2">QuickHire</span> <!-- Add website name here -->
   </a>
 
   <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-    <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-    <li><a href="#" class="nav-link px-2 link-dark">Jobs</a></li>
-    <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
-    <li><a href="#" class="nav-link px-2 link-dark">Contact us</a></li>
+    <li><a class="nav-link px-2 link-dark"(click)="home($event)" >Home</a></li>
+    <li><a class="nav-link px-2 link-dark"(click)="jobs($event)" >Jobs</a></li>
+    <li><a class="nav-link px-2 link-dark"(click)="about($event)" >About</a></li>
+    <li><a class="nav-link px-2 link-dark"(click)="contact($event)" >Contact us</a></li>
   </ul>
 
 

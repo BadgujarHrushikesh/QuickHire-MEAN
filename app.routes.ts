@@ -2,13 +2,16 @@ import { Routes } from '@angular/router';
 
 
 import { HomeComponent } from './pages/home/home.component';
+import { PagesComponent } from './pages/pages.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { JobsComponent } from './pages/jobs/jobs.component';
-import { AuthComponent } from './auth/auth.component';
-import { LoginComponent } from './auth/login/login.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { PagesComponent } from './pages/pages.component';
+
+
+import { AuthComponent } from './src/app/auth/auth.component';
+import { LoginComponent } from './src/app/auth/login/login.component';
+import { SignupComponent } from './src/app/auth/signup/signup.component';
+import { ForgetPasswordComponent } from './src/app/auth/forget-password/forget-password.component';
 
 
 export const routes: Routes = [
@@ -25,7 +28,7 @@ export const routes: Routes = [
         },
         {
             path: 'forget-password',
-            component: SignupComponent
+            component: ForgetPasswordComponent
         },
         {
             path: '**',
