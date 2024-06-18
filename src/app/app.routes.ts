@@ -10,6 +10,10 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { PagesComponent } from './pages/pages.component';
 import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
+import { MyAccountComponent } from './pages/My-account/my-account.component';
+import { ProfileComponent } from './pages/My-account/profile/profile.component';
+import { SettingComponent } from './pages/My-account/setting/setting.component';
+import { MyJobsComponent } from './pages/My-account/my-jobs/my-jobs.component';
 
 
 export const routes: Routes = [
@@ -34,6 +38,21 @@ export const routes: Routes = [
         }]
     },
     {
+        path: 'my-account/:userId',  //dynamic id each user
+        component: MyAccountComponent,
+        children: [{
+            path: 'profile',
+            component: ProfileComponent
+        }, {
+            path: 'setting',
+            component: SettingComponent
+        },{
+            path: 'my-jobs',
+            component: MyJobsComponent
+        }
+    ]
+    },
+    {
         path: 'app',
         component: PagesComponent,
         children: [{
@@ -42,7 +61,7 @@ export const routes: Routes = [
         },
         {
             path: 'about-us',
-            component:  AboutComponent
+            component: AboutComponent
         },
         {
             path: 'contact-us',
@@ -50,13 +69,13 @@ export const routes: Routes = [
         },
         {
             path: 'jobs',
-            component:  JobsComponent
+            component: JobsComponent
         },
         {
             path: '**',
             redirectTo: 'home'
         }]
-    },{
+    }, {
         path: '**',
         redirectTo: 'app'
     }

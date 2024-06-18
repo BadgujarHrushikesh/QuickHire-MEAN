@@ -11,11 +11,15 @@ import { Router } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  public isLogin: Boolean = false;
-  // public isLogin : Boolean = true;
+  // public isLogin: Boolean = false;
+  public isLogin: Boolean = true;
+
+  public userId: Number = 123 // this now only for defining route came from backend with cookies when login will implement
 
 
   constructor(private router: Router) { }
+
+  // enable both time when user login or not login
 
   login(): void {
     this.router.navigate(['auth', 'login'])
@@ -25,23 +29,45 @@ export class NavbarComponent {
     this.router.navigate(['auth', 'signup'])
   }
 
-  home(event:Event): void {
+  home(event: Event): void {
     event.preventDefault()
     this.router.navigate(['app', 'home'])
   }
 
-  jobs(event:Event): void {
+  jobs(event: Event): void {
     event.preventDefault()
     this.router.navigate(['app', 'jobs'])
   }
-  about(event:Event): void {
+  about(event: Event): void {
     event.preventDefault()
     this.router.navigate(['app', 'about-us'])
   }
-  contact(event:Event): void {
+  contact(event: Event): void {
     event.preventDefault()
     this.router.navigate(['app', 'contact-us'])
   }
 
+
+  // My account only enable when user will logged in
+  profile(event: Event): void {
+    event.preventDefault()
+    this.router.navigate(['my-account', this.userId, 'profile'])
+
+  }
+  setting(event: Event): void {
+    event.preventDefault()
+    this.router.navigate(['my-account', this.userId, 'setting'])
+
+  }
+  myjobs(event: Event): void {
+    event.preventDefault()
+    this.router.navigate(['my-account', this.userId, 'my-jobs'])
+
+  }
+  signout(event: Event): void {
+    event.preventDefault()
+    this.router.navigate(['my-account', this.userId, 'signout'])
+    // the logic about cookie expiration will came here or remove seecion or local storage 
+  }
 
 }
