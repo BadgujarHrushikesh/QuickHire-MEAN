@@ -1,0 +1,11 @@
+
+    .rounded-circle {
+      overflow: hidden;
+      position: relative;
+    }
+  
+    .rounded-circle img {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }

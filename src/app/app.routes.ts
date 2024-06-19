@@ -14,6 +14,7 @@ import { MyAccountComponent } from './pages/My-account/my-account.component';
 import { ProfileComponent } from './pages/My-account/profile/profile.component';
 import { SettingComponent } from './pages/My-account/setting/setting.component';
 import { MyJobsComponent } from './pages/My-account/my-jobs/my-jobs.component';
+import { CreateEditProfileComponent } from './pages/My-account/create-edit-profile/create-edit-profile.component';
 
 
 export const routes: Routes = [
@@ -49,6 +50,9 @@ export const routes: Routes = [
         },{
             path: 'my-jobs',
             component: MyJobsComponent
+        },{
+            path: 'edit-profile',
+            component: CreateEditProfileComponent
         }
     ]
     },

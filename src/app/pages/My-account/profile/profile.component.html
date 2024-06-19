@@ -1,272 +1,427 @@
-<section style="background-color: #eee;">
-    <div class="container py-5">
-        <div class="row">
-            <div class="col">
-                <nav aria-label="breadcrumb" class="bg-body-tertiary rounded-3 p-3 mb-4">
-                    <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="#">My Account </a></li>
-                        <!-- <li class="breadcrumb-item"><a href="#">User Profile</a></li> -->
-                        <li class="breadcrumb-item active" aria-current="page">User Profile</li>
-                    </ol>
-                </nav>
-            </div>
+<!-- Dashboard -->
+<div class="d-flex flex-column flex-lg-row h-lg-screen bg-surface-secondary">
+  <!-- Vertical Navbar -->
+  <nav
+    class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
+    id="navbarVertical">
+    <div class="container-fluid">
+      <!-- Toggler -->
+      <button class="navbar-toggler ms-n2" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarCollapse"
+        aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- User menu (mobile) -->
+      <div class="navbar-user d-lg-none">
+        <!-- Dropdown -->
+        <div class="dropdown">
+          <!-- Toggle -->
+          <a href="#" id="sidebarAvatar" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+          </a>
+          <!-- Menu -->
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="sidebarAvatar">
+            <a href="#" class="dropdown-item">Profile</a>
+            <a href="#" class="dropdown-item">Settings</a>
+            <a href="#" class="dropdown-item">Billing</a>
+            <hr class="dropdown-divider">
+            <a href="#" class="dropdown-item">Logout</a>
+          </div>
         </div>
+      </div>
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="sidebarCollapse">
+        <!-- Navigation -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-house"></i> Summary
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-bar-chart"></i> Contact
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-chat"></i> Experience
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-bookmarks"></i> Education
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-people"></i> Skills
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-people"></i> Applied Jobs
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-people"></i> Your Resume
+            </a>
+          </li>
 
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card mb-4">
-                    <div class="card-body text-center">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                            alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                        <h5 class="my-3">John Smith</h5>
-                        <p class="text-muted mb-1">Full Stack Developer</p>
-                        <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
-                        <div class="d-flex justify-content-center mb-2">
-                            <!-- <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">Follow</button>
-                              -->
+        </ul>
+        <!-- Divider -->
+        <hr class="navbar-divider my-5 opacity-20">
 
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                class="btn btn-outline-primary ms-1">Update Profile</button>
-
-
-                        </div>
-
-
-                    </div>
-                </div>
-
-
-
-                <div class="card mb-4 mb-lg-0 p-4">
-                    <div class="card-body p-1">
-                        <h5>Skills</h5>
-                        <ul>
-                            <li>abc</li>
-                            <li>abc</li>
-                            <li>abc</li>
-                            <li>abc</li>
-                            <li>abc</li>
-                            <li>abc</li>
-                            <li>abc</li>
-                            <li>abc</li>
-                            <li>abc</li>
-                            <li>abc</li>
-                            <li>abc</li>
-                            <li>abc</li>
-
-
-
-                        </ul>
-                    </div>
-                </div>
-
-
-
-
-
-
-            </div>
-
-
-            <div class="col-lg-8">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Full Name</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">Johnatan Smith</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Email</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">exampleexample.com</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Phone</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">(097) 234-5678</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Mobile</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">(098) 765-4321</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Address</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Resume</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <input type="file">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5>Summary</h5>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate eligendi dolor aperiam
-                            sed deserunt? Repellendus earum, maxime voluptates nulla expedita non quis rem! Beatae,
-                            velit. Optio repudiandae labore dolores quisquam! Vero maxime facilis repellendus nihil
-                            consectetur! Ullam, possimus tenetur maiores libero, modi quos atque nesciunt at illum
-                            dolorum itaque nostrum aperiam nam debitis. </p>
-                    </div>
-                </div>
-
-
-
-
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="p-2">Education</h5>
-                        <hr>
-                        <div class="row">
-                            
-                            
-                            <p>Universty Name</p>
-                                <p>Degree</p>
-                                <p> Aug 2023 - Aug 2024</p>
-                                <p>Grade : 75%</p>
-
-                                
-                        </div>
-                        <hr>
-                        <!-- <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Phone</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">(097) 234-5678</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Mobile</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">(098) 765-4321</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Address</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
-                            </div>
-                        </div> -->
-                    </div>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-            </div>
-
-            <br>
-            <div class="row mt-4">
-
-                <div class="col-md-12 mb-4">
-                    <div class="card mb-4 mb-md-0">
-                        <div class="card-body">
-                            <h3 class="mb-4"> Projects</h3>
-
-                            <div class="row">
-                                <div class="col-md-6 mb-4">
-                                    <div class="card mb-4 mb-md-0">
-                                        <div class="card-body">
-                                            <h5>Skills</h5>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Molestias, aut unde modi culpa perspiciatis cumque temporibus
-                                                quaerat quis quidem, dicta distinctio sequi voluptates eligendi
-                                                tempore saepe laudantium ut reprehenderit ad consectetur
-                                                corrupti similique consequatur nihil at aliquam? Debitis totam
-                                                voluptatum vero vel ex eveniet, assumenda consectetur, vitae
-                                                molestiae amet quis. Lorem ipsum dolor, sit amet consectetur
-                                                adipisicing elit. Officia odit nihil labore omnis eligendi ipsam
-                                                ad esse? Velit esse eum perspiciatis repudiandae enim aliquid
-                                                temporibus non, aut quos rerum. Qui natus commodi dolorum.
-                                                Praesentium nulla voluptas qui nisi soluta. Pariatur culpa animi
-                                                dicta suscipit voluptatum. Delectus debitis repudiandae ea
-                                                maiores aliquam pariatur iusto excepturi sed, deserunt quibusdam
-                                                non nesciunt accusamus similique vel et vero voluptas eligendi?
-                                                Molestiae maiores totam laborum. Unde ex explicabo aut natus
-                                                sunt. Modi, consequatur! Corporis expedita obcaecati distinctio
-                                                quam accusantium id ratione nam, sint suscipit itaque debitis
-                                                reiciendis ad illum. In voluptas modi ea repellat animi
-
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <div class="card mb-4 mb-md-0">
-                                        <div class="card-body">
-                                            <h5>Skills</h5>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Molestias, aut unde modi culpa perspiciatis cumque temporibus
-                                                quaerat quis quidem, dicta distinctio sequi voluptates eligendi
-                                                tempore saepe laudantium ut reprehenderit ad consectetur
-                                                corrupti similique consequatur nihil at aliquam? Debitis totam
-                                                voluptatum vero vel ex eveniet, assumenda consectetur, vitae
-                                                molestiae amet quis. Lorem ipsum dolor, sit amet consectetur
-                                                adipisicing elit. Officia odit nihil labore omnis eligendi ipsam
-                                                ad esse? Velit esse eum perspiciatis repudiandae enim aliquid
-                                                temporibus non, aut quos rerum. Qui natus commodi dolorum.
-                                                Praesentium nulla voluptas qui nisi soluta. Pariatur culpa animi
-                                                dicta suscipit voluptatum. Delectus debitis repudiandae ea
-                                                maiores aliquam pariatur iusto excepturi sed, deserunt quibusdam
-                                                non nesciunt accusamus similique vel et vero voluptas eligendi?
-                                                Molestiae maiores totam laborum. Unde ex explicabo aut natus
-                                                sunt. Modi, consequatur! Corporis expedita obcaecati distinctio
-                                                quam accusantium id ratione nam, sint suscipit itaque debitis
-                                                reiciendis ad illum. In voluptas modi ea repellat animi!</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+      </div>
     </div>
-</section>
+  </nav>
+  <!-- Main content -->
+  <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+    <!-- Header -->
+    <header class="bg-surface-primary border-bottom pt-6">
+
+      <div class="col-sm-6 col-12 mx-4 mb-sm-0">
+        <!-- Title -->
+        <h1 class="h2 mb-0 ls-tight mb-4 mx-4">Profile</h1>
+      </div>
+
+
+    </header>
+    <!-- Main -->
+    <main class="py-6 bg-surface-secondary mt-3">
+      <div class="container-fluid">
+        <!-- Card stats -->
+        <div class="row g-6 mb-6">
+          <div class="container mt-4">
+            <div class="row">
+              <!-- Left Card (8 parts) -->
+              <div class="col-lg-8 mb-4">
+                <div class="card shadow border-0">
+                  <div class="card-body">
+                    <h5 class="card-title">Personal Information</h5>
+                    <div class="mb-3">
+                      <label for="profileName" class="form-label">Name</label>
+                      <p id="profileName">John Doe</p>
+                    </div>
+                    <div class="mb-3">
+                      <label for="profileEmail" class="form-label">Email</label>
+                      <p id="profileEmail">john.doexample.com</p>
+                    </div>
+                    <div class="mb-3">
+                      <label for="profilePhone" class="form-label">Phone</label>
+                      <p id="profilePhone">(123) 456-7890</p>
+                    </div>
+                    <div class="mb-3">
+                      <label for="profileLocation" class="form-label">Location</label>
+                      <p id="profileLocation">New York, USA</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Right Card (4 parts) -->
+              <div class="col-lg-4 mb-4">
+                <div class="card shadow border-0 text-center">
+                  <div class="card-body">
+                    <div class="icon icon-shape bg-primary text-white text-lg rounded-circle mx-auto mb-6 mt-2"
+                      style="width: 200px; height: 200px; display: flex; align-items: center; justify-content: center;">
+                      <i class="bi bi-person-circle" style="font-size: 4rem;"></i>
+                    </div>
+
+                    <h5 class="card-title">John Doe</h5>
+                    <p class="card-text">Frontend Developer</p>
+                    <p class="card-text">New York, USA</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <h4 class="mb-3 mx-2">Summary </h4>
+        <div class=" mb-4">
+          <div class="card shadow border-0">
+            <div class="card-body">
+              <div class="mt-2 mb-0 text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum cumque, ea a, non laborum est sequi quam
+                dolore ab odit, ad assumenda? Quaerat quasi beatae, quo necessitatibus quidem cum natus, optio
+                cupiditate doloremque distinctio veniam impedit totam incidunt omnis odit tenetur recusandae deleniti
+                eligendi velit suscipit nulla nam! Totam, tenetur. Laudantium reprehenderit deleniti nulla incidunt cum
+                magni doloribus odio minus impedit aut praesentium quo itaque nam molestias enim, repudiandae est
+                necessitatibus corrupti in, recusandae cupiditate quod ab. Natus quis cum at odio beatae enim qui
+                reprehenderit dolores. Architecto earum unde accusamus amet minus repellat et animi optio. Fuga, nobis
+                nostrum.
+              </div>
+            </div>
+          </div>
+        </div>
+<hr>
+        <h4 class="mb-3 mx-2">Skills </h4>
+        <div class=" mb-4">
+          <div class="card shadow border-0">
+            <div class="card-body">
+              <div class="mt-2 mb-0 text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum cumque, ea a, non laborum est sequi quam
+                dolore ab odit, ad assumenda? Quaerat quasi beatae, quo necessitatibus quidem cum natus, optio
+                cupiditate doloremque distinctio veniam impedit totam incidunt omnis odit tenetur recusandae deleniti
+                eligendi velit suscipit nulla nam! Totam, tenetur. Laudantium reprehenderit deleniti nulla incidunt cum
+                magni doloribus odio minus impedit aut praesentium quo itaque nam molestias enim, repudiandae est
+                necessitatibus corrupti in, recusandae cupiditate quod ab. Natus quis cum at odio beatae enim qui
+                reprehenderit dolores. Architecto earum unde accusamus amet minus repellat et animi optio. Fuga, nobis
+                nostrum.
+              </div>
+            </div>
+          </div>
+        </div>
+<hr>
+
+
+
+        <h4 class="mb-3 mx-2">Eduaction </h4>
+        <div class=" mb-4">
+          <div class="card shadow border-0">
+            <div class="card-body">
+              <div class="mt-2 mb-0 text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum cumque, ea a, non laborum est sequi quam
+                dolore ab odit, ad assumenda? Quaerat quasi beatae, quo necessitatibus quidem cum natus, optio
+                cupiditate doloremque distinctio veniam impedit totam incidunt omnis odit tenetur recusandae deleniti
+                eligendi velit suscipit nulla nam! Totam, tenetur. Laudantium reprehenderit deleniti nulla incidunt cum
+                magni doloribus odio minus impedit aut praesentium quo itaque nam molestias enim, repudiandae est
+                necessitatibus corrupti in, recusandae cupiditate quod ab. Natus quis cum at odio beatae enim qui
+                reprehenderit dolores. Architecto earum unde accusamus amet minus repellat et animi optio. Fuga, nobis
+                nostrum.
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="mt-2 mb-0 text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum cumque, ea a, non laborum est sequi quam
+                dolore ab odit, ad assumenda? Quaerat quasi beatae, quo necessitatibus quidem cum natus, optio
+                cupiditate doloremque distinctio veniam impedit totam incidunt omnis odit tenetur recusandae deleniti
+                eligendi velit suscipit nulla nam! Totam, tenetur. Laudantium reprehenderit deleniti nulla incidunt cum
+                magni doloribus odio minus impedit aut praesentium quo itaque nam molestias enim, repudiandae est
+                necessitatibus corrupti in, recusandae cupiditate quod ab. Natus quis cum at odio beatae enim qui
+                reprehenderit dolores. Architecto earum unde accusamus amet minus repellat et animi optio. Fuga, nobis
+                nostrum.
+              </div>
+            </div>
+            <hr>
+            <div class="card-body">
+              <div class="mt-2 mb-0 text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum cumque, ea a, non laborum est sequi quam
+                dolore ab odit, ad assumenda? Quaerat quasi beatae, quo necessitatibus quidem cum natus, optio
+                cupiditate doloremque distinctio veniam impedit totam incidunt omnis odit tenetur recusandae deleniti
+                eligendi velit suscipit nulla nam! Totam, tenetur. Laudantium reprehenderit deleniti nulla incidunt cum
+                magni doloribus odio minus impedit aut praesentium quo itaque nam molestias enim, repudiandae est
+                necessitatibus corrupti in, recusandae cupiditate quod ab. Natus quis cum at odio beatae enim qui
+                reprehenderit dolores. Architecto earum unde accusamus amet minus repellat et animi optio. Fuga, nobis
+                nostrum.
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+
+
+        <h4 class="mb-3 mx-2">Expereince </h4>
+        <div class=" mb-4">
+          <div class="card shadow border-0">
+            <div class="card-body">
+              <div class="mt-2 mb-0 text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum cumque, ea a, non laborum est sequi quam
+                dolore ab odit, ad assumenda? Quaerat quasi beatae, quo necessitatibus quidem cum natus, optio
+                cupiditate doloremque distinctio veniam impedit totam incidunt omnis odit tenetur recusandae deleniti
+                eligendi velit suscipit nulla nam! Totam, tenetur. Laudantium reprehenderit deleniti nulla incidunt cum
+                magni doloribus odio minus impedit aut praesentium quo itaque nam molestias enim, repudiandae est
+                necessitatibus corrupti in, recusandae cupiditate quod ab. Natus quis cum at odio beatae enim qui
+                reprehenderit dolores. Architecto earum unde accusamus amet minus repellat et animi optio. Fuga, nobis
+                nostrum.
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="mt-2 mb-0 text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum cumque, ea a, non laborum est sequi quam
+                dolore ab odit, ad assumenda? Quaerat quasi beatae, quo necessitatibus quidem cum natus, optio
+                cupiditate doloremque distinctio veniam impedit totam incidunt omnis odit tenetur recusandae deleniti
+                eligendi velit suscipit nulla nam! Totam, tenetur. Laudantium reprehenderit deleniti nulla incidunt cum
+                magni doloribus odio minus impedit aut praesentium quo itaque nam molestias enim, repudiandae est
+                necessitatibus corrupti in, recusandae cupiditate quod ab. Natus quis cum at odio beatae enim qui
+                reprehenderit dolores. Architecto earum unde accusamus amet minus repellat et animi optio. Fuga, nobis
+                nostrum.
+              </div>
+            </div>
+            <hr>
+            <div class="card-body">
+              <div class="mt-2 mb-0 text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum cumque, ea a, non laborum est sequi quam
+                dolore ab odit, ad assumenda? Quaerat quasi beatae, quo necessitatibus quidem cum natus, optio
+                cupiditate doloremque distinctio veniam impedit totam incidunt omnis odit tenetur recusandae deleniti
+                eligendi velit suscipit nulla nam! Totam, tenetur. Laudantium reprehenderit deleniti nulla incidunt cum
+                magni doloribus odio minus impedit aut praesentium quo itaque nam molestias enim, repudiandae est
+                necessitatibus corrupti in, recusandae cupiditate quod ab. Natus quis cum at odio beatae enim qui
+                reprehenderit dolores. Architecto earum unde accusamus amet minus repellat et animi optio. Fuga, nobis
+                nostrum.
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+
+
+
+        <!--  -->
+        <h4 class="mb-3 mx-2">Expericnce </h4>
+        <div class=" mb-4">
+          <div class="card shadow border-0">
+            <div class="card-body">
+              <div class="mt-2 mb-0 text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum cumque, ea a, non laborum est sequi quam
+                dolore ab odit, ad assumenda? Quaerat quasi beatae, quo necessitatibus quidem cum natus, optio
+                cupiditate doloremque distinctio veniam impedit totam incidunt omnis odit tenetur recusandae deleniti
+                eligendi velit suscipit nulla nam! Totam, tenetur. Laudantium reprehenderit deleniti nulla incidunt cum
+                magni doloribus odio minus impedit aut praesentium quo itaque nam molestias enim, repudiandae est
+                necessitatibus corrupti in, recusandae cupiditate quod ab. Natus quis cum at odio beatae enim qui
+                reprehenderit dolores. Architecto earum unde accusamus amet minus repellat et animi optio. Fuga, nobis
+                nostrum.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+        <!--  -->
+
+
+        <!-- Table for applied Jobs -->
+
+        <div class="card shadow border-0 mb-7">
+          <div class="card-header">
+            <h5 class="mb-0">Appied Jobs</h5>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover table-nowrap">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Company</th>
+                  <th scope="col">Offer</th>
+                  <th scope="col">Meeting</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <img alt="..."
+                      src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                      class="avatar avatar-sm rounded-circle me-2">
+                    <a class="text-heading font-semibold" href="#">
+                      Robert Fox
+                    </a>
+                  </td>
+                  <td>
+                    Feb 15, 2021
+                  </td>
+                  <td>
+                    <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-1.png"
+                      class="avatar avatar-xs rounded-circle me-2">
+                    <a class="text-heading font-semibold" href="#">
+                      Dribbble
+                    </a>
+                  </td>
+                  <td>
+                    $3.500
+                  </td>
+                  <td>
+                    <span class="badge badge-lg badge-dot">
+                      <i class="bg-success"></i>Scheduled
+                    </span>
+                  </td>
+                  <td class="text-end">
+                    <a href="#" class="btn btn-sm btn-neutral">View</a>
+                    <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img alt="..."
+                      src="https://images.unsplash.com/photo-1610271340738-726e199f0258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                      class="avatar avatar-sm rounded-circle me-2">
+                    <a class="text-heading font-semibold" href="#">
+                      Darlene Robertson
+                    </a>
+                  </td>
+                  <td>
+                    Apr 15, 2021
+                  </td>
+                  <td>
+                    <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-2.png"
+                      class="avatar avatar-xs rounded-circle me-2">
+                    <a class="text-heading font-semibold" href="#">
+                      Netguru
+                    </a>
+                  </td>
+                  <td>
+                    $2.750
+                  </td>
+                  <td>
+                    <span class="badge badge-lg badge-dot">
+                      <i class="bg-warning"></i>Postponed
+                    </span>
+                  </td>
+                  <td class="text-end">
+                    <a href="#" class="btn btn-sm btn-neutral">View</a>
+                    <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img alt="..."
+                      src="https://images.unsplash.com/photo-1610878722345-79c5eaf6a48c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                      class="avatar avatar-sm rounded-circle me-2">
+                    <a class="text-heading font-semibold" href="#">
+                      Theresa Webb
+                    </a>
+                  </td>
+                  <td>
+                    Mar 20, 2021
+                  </td>
+                  <td>
+                    <img alt="..." src="https://preview.webpixels.io/web/img/other/logos/logo-3.png"
+                      class="avatar avatar-xs rounded-circle me-2">
+                    <a class="text-heading font-semibold" href="#">
+                      Figma
+                    </a>
+                  </td>
+                  <td>
+                    $4.200
+                  </td>
+                  <td>
+                    <span class="badge badge-lg badge-dot">
+                      <i class="bg-success"></i>Scheduled
+                    </span>
+                  </td>
+                  <td class="text-end">
+                    <a href="#" class="btn btn-sm btn-neutral">View</a>
+                    <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer border-0 py-5">
+            <span class="text-muted text-sm">Showing 10 items out of 250 results found</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
