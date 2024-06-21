@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  // public isLogin: Boolean = false;
-  public isLogin: Boolean = true;
+  public isLogin: Boolean = false;
+  // public isLogin: Boolean = true;
 
   public userId: Number = 123 // this now only for defining route came from backend with cookies when login will implement
 

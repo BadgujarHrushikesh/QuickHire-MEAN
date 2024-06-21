@@ -1,21 +1,15 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import {  RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [],
+  imports: [RouterOutlet],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
 export class SignupComponent {
 
 
-  constructor(private router:Router){}
-
-  signin(event:Event){
-    event.preventDefault()
-    this.router.navigate(['auth','login'])
-
-  }
+  
 }

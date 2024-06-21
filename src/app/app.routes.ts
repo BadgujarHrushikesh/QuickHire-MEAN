@@ -15,6 +15,8 @@ import { ProfileComponent } from './pages/My-account/profile/profile.component';
 import { SettingComponent } from './pages/My-account/setting/setting.component';
 import { MyJobsComponent } from './pages/My-account/my-jobs/my-jobs.component';
 import { CreateEditProfileComponent } from './pages/My-account/create-edit-profile/create-edit-profile.component';
+import { BasicInfoComponent } from './auth/signup/basic-info/basic-info.component';
+import { UserTypeComponent } from './auth/signup/user-type/user-type.component';
 
 
 export const routes: Routes = [
@@ -27,7 +29,20 @@ export const routes: Routes = [
         },
         {
             path: 'signup',
-            component: SignupComponent
+            component: SignupComponent,
+            children: [
+                {
+                    path: "basic-info",
+                    component: BasicInfoComponent
+                },
+                {
+                    path: 'user-type',
+                    component: UserTypeComponent
+                },
+                {
+                    path: '**',
+                    redirectTo: "basic-info"
+                }]
         },
         {
             path: 'forget-password',
@@ -47,14 +62,14 @@ export const routes: Routes = [
         }, {
             path: 'setting',
             component: SettingComponent
-        },{
+        }, {
             path: 'my-jobs',
             component: MyJobsComponent
-        },{
+        }, {
             path: 'edit-profile',
             component: CreateEditProfileComponent
         }
-    ]
+        ]
     },
     {
         path: 'app',
