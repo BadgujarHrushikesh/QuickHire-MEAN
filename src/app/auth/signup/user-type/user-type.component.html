@@ -7,8 +7,9 @@
                     <div class="text-center">
                         <h2 class="text-center text-dark mb-4">User Information</h2>
                     </div>
-                    <div class="mb-3" >
-                        <select name="User-Type" class="form-control" id="User-Type">
+                    <div class="mb-3">
+                        <select name="User-Type" class="form-control" id="User-Type" [(ngModel)]="selectedUserType"
+                            (ngModelChange)="onUserTypeChange($event)">
                             <option value="#">Select Account Type</option>
                             <option value="Individual-Employer">Job Hunter</option>
                             <option value="Company-hr">Company HR</option>
@@ -19,108 +20,109 @@
 
 
                     <!-- For Job Hunter -->
-                    <!-- <div class="mb-3">
-                        <select name="Work-experience" class="form-control" id="Work-experience">
-                            <option value="#">Work Experience</option>
-                            <option value="Mh">Fresher</option>
-                            <option value="KA">Experience</option>
-                        </select>
-                    </div>
+                    <div *ngIf="selectedUserType === 'Individual-Employer'">
+                        <div class="mb-3">
+                            <select name="Work-experience" class="form-control" id="Work-experience">
+                                <option value="#">Work Experience</option>
+                                <option value="Mh">Fresher</option>
+                                <option value="KA">Experience</option>
+                            </select>
+                        </div>
 
-                    <div class="mb-3">
-                        <select name="Job-type" class="form-control" id="Job-type">
-                            <option value="#">Desired Job Type </option>
-                            <option value="FullTime">Full-Time</option>
-                            <option value="PartTime">Part-Time</option>
-                            <option value="Internship">Internship</option>
-                        </select>
-                    </div>
+                        <div class="mb-3">
+                            <select name="Job-type" class="form-control" id="Job-type">
+                                <option value="#">Desired Job Type </option>
+                                <option value="FullTime">Full-Time</option>
+                                <option value="PartTime">Part-Time</option>
+                                <option value="Internship">Internship</option>
+                            </select>
+                        </div>
 
-                    <div class="mb-3">
-                        <select name="State" class="form-control" id="State">
-                            <option value="#">Select State</option>
-                            <option value="Mh">Maharashtra</option>
-                            <option value="KA">Karnataka</option>
-                            <option value="TN">TamilNadu</option>
-                            <option value="TL">Telangana</option>
-                        </select>
-                    </div>
+                        <div class="mb-3">
+                            <select name="State" class="form-control" id="State" [(ngModel)]="selectedState"
+                                (ngModelChange)="onUserStateChange($event)">
+                                <option value="#">Select State</option>
+                                <option value="MH">Maharashtra</option>
+                                <option value="KA">Karnataka</option>
+                                <option value="TN">TamilNadu</option>
+                                <option value="TL">Telangana</option>
+                            </select>
+                        </div>
 
-                    <div class="mb-3">
-                        <select name="City" class="form-control" id="City">
-                            <option value="#">City</option>
-                            <option value="Mh">Pune</option>
-                            <option value="KA">Mumbai</option>
-                            <option value="TN">Chennai</option>
-                            <option value="TL">Hydrabad</option>
-                            <option value="TL">Bengaluru</option>
-                        </select>
-                    </div> -->
+                        <div class="mb-3">
+                            <select name="City" class="form-control" id="City">
+                                <option value="#">City</option>
+                                <option value="Pune" *ngIf="selectedState === 'MH'">Pune</option>
+                                <option value="Mumbai" *ngIf="selectedState === 'MH'">Mumbai</option>
+                                <option value="Chennai" *ngIf="selectedState === 'TN'">Chennai</option>
+                                <option value="Hydrabad" *ngIf="selectedState === 'TL'">Hydrabad</option>
+                                <option value="Bengaluru" *ngIf="selectedState === 'KA'">Bengaluru</option>
+                            </select>
+                        </div>
+
+                    </div>
 
 
                     <!-- For Company HR -->
+                    <div *ngIf="selectedUserType === 'Company-hr'">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="Designation" placeholder="Designation">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="Department" placeholder="Department">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="Company" placeholder="Company Name">
+                        </div>
+                    </div>
 
-                    <!-- <div class="mb-3">
-                        <input type="text" class="form-control" id="Designation" placeholder="Designation">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="Department" placeholder="Department">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="Company" placeholder="Company Name">
-                    </div> -->
 
 
                     <!-- For Company -->
+                    <div *ngIf="selectedUserType === 'Company'">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="CIN"
+                                placeholder="Corporate Identification Number (CIN)">
+                        </div>
 
-                    <!-- Business type
-                    Business registration number
-                    Industry
-                    Number of employees
-                    Company website -->
-
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="CIN"
-                            placeholder="Corporate Identification Number (CIN)">
-                    </div>
-
-                    <select name="businessType" class="form-control mb-3" id="businessType">
-                        <option value="#">Select Business Type</option>
-                        <option value="Technology/Software">Technology/Software</option>
-                        <option value="Healthcare/Medical">Healthcare/Medical</option>
-                        <option value="Finance/Accounting">Finance/Accounting</option>
-                        <option value="Education/Training">Education/Training</option>
-                        <option value="Retail/Wholesale">Retail/Wholesale</option>
-                        <option value="Manufacturing/Production">Manufacturing/Production</option>
-                        <option value="Consulting/Professional Services">Consulting/Professional Services</option>
-                        <option value="Hospitality/Travel">Hospitality/Travel</option>
-                        <option value="Real Estate/Property">Real Estate/Property</option>
-                        <option value="Marketing/Advertising">Marketing/Advertising</option>
-                        <option value="other">Other</option>
-                    </select>
-
-                    <div class="mb-3">
-                        <select name="No-of-employee" class="form-control" id="No-of-employee">
-                            <option value="#">Number of employees</option>
-                            <option value="2-10">2-10</option>
-                            <option value="11-50">11-50</option>
-                            <option value="51-100">51-100</option>
-                            <option value="100-500">100-500</option>
-                            <option value="Above 500">Above 500</option>
+                        <select name="businessType" class="form-control mb-3" id="businessType">
+                            <option value="#">Select Business Type</option>
+                            <option value="Technology/Software">Technology/Software</option>
+                            <option value="Healthcare/Medical">Healthcare/Medical</option>
+                            <option value="Finance/Accounting">Finance/Accounting</option>
+                            <option value="Education/Training">Education/Training</option>
+                            <option value="Retail/Wholesale">Retail/Wholesale</option>
+                            <option value="Manufacturing/Production">Manufacturing/Production</option>
+                            <option value="Consulting/Professional Services">Consulting/Professional Services</option>
+                            <option value="Hospitality/Travel">Hospitality/Travel</option>
+                            <option value="Real Estate/Property">Real Estate/Property</option>
+                            <option value="Marketing/Advertising">Marketing/Advertising</option>
+                            <option value="other">Other</option>
                         </select>
-                    </div>
 
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="Company-website" placeholder="Company website">
-                    </div>
+                        <div class="mb-3">
+                            <select name="No-of-employee" class="form-control" id="No-of-employee">
+                                <option value="#">Number of employees</option>
+                                <option value="2-10">2-10</option>
+                                <option value="11-50">11-50</option>
+                                <option value="51-100">51-100</option>
+                                <option value="100-500">100-500</option>
+                                <option value="Above 500">Above 500</option>
+                            </select>
+                        </div>
 
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="Company-website" placeholder="Company website">
+                        </div>
+
+                    </div>
 
 
                     <div class="form-check mb-4">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                        <label class="form-check-label" for="flexCheckChecked">
-                            I agree On term And Condition And Privacy Poicy
-                        </label>
+                       
+                        <label for="agree">
+                            <input class="form-check-input" type="checkbox" value="" id="agree" name="agree"> I agree to the <a href="https://www.termsfeed.com/blog/terms-conditions-url/">Terms and Conditions</a> and <a href="https://www.freeprivacypolicy.com/blog/privacy-policy-url/">Privacy Policy</a>.
+                          </label>
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-color px-5 mb-2 w-100">Submit</button>

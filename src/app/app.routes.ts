@@ -36,7 +36,7 @@ export const routes: Routes = [
                     component: BasicInfoComponent
                 },
                 {
-                    path: 'user-type',
+                    path: 'user-info',
                     component: UserTypeComponent
                 },
                 {
