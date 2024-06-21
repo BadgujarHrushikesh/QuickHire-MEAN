@@ -24,3 +24,8 @@ a {
 .text-dark .fw-bold{
     cursor: pointer;
 }
+
+
+.warning {
+    color: rgb(0, 0, 0);
+}
