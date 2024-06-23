@@ -18,6 +18,7 @@ interface PasswordValidation {
   styleUrls: ['./basic-info.component.css']
 })
 export class BasicInfoComponent implements OnInit {
+
   public user_Basic_info!: FormGroup;
   passwordValidation: PasswordValidation = {
     hasNumber: false,
@@ -26,7 +27,7 @@ export class BasicInfoComponent implements OnInit {
     hasSymbol: false
   };
 
-  constructor(private router: Router, private fb: FormBuilder) { }
+  constructor(private router: Router, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.user_Basic_info = this.fb.group({
@@ -38,8 +39,8 @@ export class BasicInfoComponent implements OnInit {
     }, {
       validators: this.passwordMatchValidator
     });
-  }
-
+  
+}
   get password() {
     return this.user_Basic_info.get('password');
   }
