@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgClass, NgIf, NgFor, CommonModule } from '@angular/common';
 import { log } from 'console';
+import { SignupService } from '../../../Services/signup.service';
 
 @Component({
   selector: 'app-user-type',
@@ -12,11 +13,11 @@ import { log } from 'console';
 })
 export class UserTypeComponent implements OnInit {
   userTypes: string[] = ['Job Hunter', 'Employer', 'Company'];
-  userType: string = '#';
+  userType: string = '';
   selectedState: string = '';
   user_type_info!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private signupService: SignupService) { }
 
   ngOnInit(): void {
     this.user_type_info = this.fb.group({
@@ -111,8 +112,22 @@ export class UserTypeComponent implements OnInit {
   onSubmit(): void {
     if (this.user_type_info.valid) {
       console.log("Step 2 Completed");
-
       console.log(this.user_type_info.value);
+
+
+
+      this.signupService.setUserBasicData(this.user_type_info);
+      this.signupService.submitData().subscribe(
+        response => {
+          console.log('Data submitted successfully:', response);
+        },
+        error => {
+          console.error('Error submitting data:', error);}
+      );
+
+
+
+
     } else {
       console.log('Form is invalid');
       window.alert("All fields are required")

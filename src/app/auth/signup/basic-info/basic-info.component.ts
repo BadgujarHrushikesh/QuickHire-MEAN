@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ValidationErrors, ReactiveFormsModule } from '@angular/forms';
 import { NgClass, NgIf } from '@angular/common';
+import { SignupService } from '../../../Services/signup.service';
+import { response } from 'express';
+import { error } from 'console';
 
 interface PasswordValidation {
   hasNumber: boolean;
@@ -13,7 +16,7 @@ interface PasswordValidation {
 @Component({
   selector: 'app-basic-info',
   standalone: true,
-  imports: [ReactiveFormsModule,NgClass,NgIf],
+  imports: [ReactiveFormsModule, NgClass, NgIf],
   templateUrl: './basic-info.component.html',
   styleUrls: ['./basic-info.component.css']
 })
@@ -27,7 +30,7 @@ export class BasicInfoComponent implements OnInit {
     hasSymbol: false
   };
 
-  constructor(private router: Router, private fb: FormBuilder) {}
+  constructor(private router: Router, private fb: FormBuilder, private sigupService: SignupService) { }
 
   ngOnInit(): void {
     this.user_Basic_info = this.fb.group({
@@ -39,8 +42,8 @@ export class BasicInfoComponent implements OnInit {
     }, {
       validators: this.passwordMatchValidator
     });
-  
-}
+
+  }
   get password() {
     return this.user_Basic_info.get('password');
   }
@@ -68,17 +71,20 @@ export class BasicInfoComponent implements OnInit {
     return null;
   }
 
-  signup_basic_info_submit() {
+  signup_basic_info_submit(): void {
     if (this.user_Basic_info.valid) {
       console.log('Step 1 completed ', this.user_Basic_info.value);
+      this.sigupService.setUserBasicData(this.user_Basic_info)
+      
       this.router.navigate(['auth', 'signup', 'user-info']);
+
     }
   }
 
 
-  signin(event:Event){
+  signin(event: Event) {
     event.preventDefault();
-    this.router.navigate(['auth','signin'])
-    
+    this.router.navigate(['auth', 'signin'])
+
   }
 }

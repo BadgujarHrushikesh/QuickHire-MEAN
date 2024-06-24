@@ -58,14 +58,55 @@
                         <div class="mb-3">
                             <input formControlName="designation" type="text" class="form-control" id="designation"
                                 placeholder="Designation*">
+
+
+                            <div *ngIf="user_type_info.get('designation')?.errors?.['required'] && user_type_info.get('designation')?.touched"
+                                class="warning">
+                                Designation is mandatory.
+                            </div>
+                            <div *ngIf="user_type_info.get('designation')?.errors?.['pattern'] && user_type_info.get('designation')?.touched"
+                                class="warning">
+                                Symbols not allowed.
+                            </div>
+
+
+
+
                         </div>
+
+
+
                         <div class="mb-3">
                             <input formControlName="department" type="text" class="form-control" id="department"
                                 placeholder="Department*">
+
+
+                            <div *ngIf="user_type_info.get('department')?.errors?.['required'] && user_type_info.get('department')?.touched"
+                                class="warning">
+                                Department Name mandatory.
+                            </div>
+                            <div *ngIf="user_type_info.get('department')?.errors?.['pattern'] && user_type_info.get('department')?.touched"
+                                class="warning">
+                                Symbols and Numbers are not allowed.
+                            </div>
+
                         </div>
+
+
+
                         <div class="mb-3">
                             <input formControlName="company" type="text" class="form-control" id="company"
                                 placeholder="Company Name*">
+
+                            <div *ngIf="user_type_info.get('company')?.errors?.['required'] && user_type_info.get('company')?.touched"
+                                class="warning">
+                                Company Name mandatory.
+                            </div>
+                            <div *ngIf="user_type_info.get('company')?.errors?.['pattern'] && user_type_info.get('company')?.touched"
+                                class="warning">
+                                Symbols not allowed.
+                            </div>
+
                         </div>
                     </div>
 
@@ -73,11 +114,23 @@
                     <div *ngIf="userType === 'Company'">
                         <div class="mb-3">
                             <input formControlName="CIN" type="text" class="form-control" id="CIN"
-                                placeholder="Corporate Identification Number (CIN)">
+                                placeholder="Corporate Identification Number (CIN)*">
+
+
+                                <div *ngIf="user_type_info.get('CIN')?.errors?.['required'] && user_type_info.get('CIN')?.touched"
+                                class="warning">
+                               CIN Number is Mandatory
+                            </div>
+                            <div *ngIf="user_type_info.get('CIN')?.errors?.['pattern'] && user_type_info.get('CIN')?.touched"
+                                class="warning">
+                               CIN Number is Must Alphanumeric and Must 5 Digit
+                            </div>
+
+
                         </div>
                         <div class="mb-3">
                             <select formControlName="businessType" class="form-control" id="businessType">
-                                <option value="" disabled selected>Select Business Type</option>
+                                <option value="" disabled selected>Select Business Type *</option>
                                 <option value="Technology/Software">Technology/Software</option>
                                 <option value="Healthcare/Medical">Healthcare/Medical</option>
                                 <option value="Finance/Accounting">Finance/Accounting</option>
@@ -91,28 +144,43 @@
                                 <option value="Marketing/Advertising">Marketing/Advertising</option>
                             </select>
                         </div>
-                        
+
                         <div class="mb-3">
                             <select formControlName="noOfEmployees" class="form-control" id="noOfEmployees">
-                                <option value="" disabled selected>Number of Employees</option>
+                                <option value="" disabled selected>Number of Employees *</option>
                                 <option value="2-10">2-10</option>
                                 <option value="11-50">11-50</option>
                                 <option value="51-100">51-100</option>
                                 <option value="100-500">100-500</option>
                                 <option value="Above-500">Above 500</option>
-                              </select>
+                            </select>
                         </div>
 
                         <div class="mb-3">
                             <input formControlName="companyWebsite" type="text" class="form-control" id="companyWebsite"
-                                placeholder="Company Website / Linkedin">
+                                placeholder="Company Website / Linkedin*">
+
+
+                            <div *ngIf="user_type_info.get('companyWebsite')?.errors?.['required'] && user_type_info.get('companyWebsite')?.touched"
+                                class="warning">
+                                Compmany Website or Linkedin is mandatory.
+                            </div>
+                            <div *ngIf="user_type_info.get('companyWebsite')?.errors?.['pattern'] && user_type_info.get('companyWebsite')?.touched"
+                                class="warning">
+                                Website/ Linkedin Must start from www or http/https and end with .com or .in
+                            </div>
+
+
                         </div>
                     </div>
 
 
                     <div class="mb-3 form-check">
                         <input formControlName="agree" type="checkbox" class="form-check-input" id="agree">
-                        <label class="form-check-label" for="agree"> I agree to the <a href="https://www.termsfeed.com/blog/terms-conditions-url/">Terms and Conditions</a> and <a href="https://www.freeprivacypolicy.com/blog/privacy-policy-url/">Privacy Policy</a></label>
+                        <label class="form-check-label" for="agree"> I agree to the <a
+                                href="https://www.termsfeed.com/blog/terms-conditions-url/">Terms and Conditions</a> and
+                            <a href="https://www.freeprivacypolicy.com/blog/privacy-policy-url/">Privacy
+                                Policy</a></label>
                     </div>
                     <button type="submit" class="btn btn-color px-5 mb-2 w-100" (click)="onSubmit()">Submit</button>
                 </form>
