@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgClass, NgIf, NgFor, CommonModule } from '@angular/common';
-import { log } from 'console';
 import { SignupService } from '../../../Services/signup.service';
 
 @Component({
@@ -16,14 +15,18 @@ export class UserTypeComponent implements OnInit {
   userType: string = '';
   selectedState: string = '';
   user_type_info!: FormGroup;
+  user_basic_data: any = {}
 
-  constructor(private fb: FormBuilder, private signupService: SignupService) { }
+  constructor(private fb: FormBuilder, public signupService: SignupService) { }
 
   ngOnInit(): void {
     this.user_type_info = this.fb.group({
       userType: ['', Validators.required],
-      agree: [false, Validators.requiredTrue]
     });
+
+    this.user_basic_data = this.signupService.getUserBasicData()
+    console.log("data From page 1 through services : ", this.user_basic_data);
+
   }
 
   onUserTypeChange(event: Event): void {
@@ -115,18 +118,17 @@ export class UserTypeComponent implements OnInit {
       console.log(this.user_type_info.value);
 
 
-
-      this.signupService.setUserBasicData(this.user_type_info);
+      
+      this.signupService.setUserTypeData(this.user_type_info);
+      this.signupService.setUserBasicData(this.user_basic_data)
       this.signupService.submitData().subscribe(
         response => {
           console.log('Data submitted successfully:', response);
         },
         error => {
-          console.error('Error submitting data:', error);}
+          console.error('Error submitting data:', error);
+        }
       );
-
-
-
 
     } else {
       console.log('Form is invalid');

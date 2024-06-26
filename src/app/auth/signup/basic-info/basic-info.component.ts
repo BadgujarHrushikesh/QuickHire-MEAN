@@ -34,7 +34,7 @@ export class BasicInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.user_Basic_info = this.fb.group({
-      id: [''],
+      // id: [''],
       name: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^([^0-9]*)$')]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$')]],
@@ -74,8 +74,8 @@ export class BasicInfoComponent implements OnInit {
   signup_basic_info_submit(): void {
     if (this.user_Basic_info.valid) {
       console.log('Step 1 completed ', this.user_Basic_info.value);
-      this.sigupService.setUserBasicData(this.user_Basic_info)
-      
+      this.sigupService.setUserBasicData(this.user_Basic_info.value)
+
       this.router.navigate(['auth', 'signup', 'user-info']);
 
     }
