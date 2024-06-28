@@ -22,7 +22,6 @@ export class SignupService {
   setUserBasicData(data: any): void {
     this.userBasicData = data;
     console.log("Data From page 1  = ", this.userBasicData);
-    console.log("Row data Received  = ", data);
 
   }
 
@@ -39,31 +38,20 @@ export class SignupService {
   }
 
 
-  // submitData(): Observable <any> {
-  //   const mergedData = { ...this.userBasicData, ...this.userTypeData };
-  //   console.log(this.userBasicData.value);
-  //   console.log(this.userTypeData.value);
-
-  //   console.log({mergedData});
-
-  //   return this.http.post(this.signupUrl, mergedData);
-
-  // }
+  
 
 
   submitData(): Observable<any> {
-    // Extract values from the form groups
+   
     const userBasicDataValues = this.userBasicData;
-    const userTypeDataValues = this.userTypeData.value;
-
     console.log("userBasicDataValues aaaa = ", userBasicDataValues);
-    console.log("userTypeDataValues = ", userTypeDataValues);
+    return this.http.post(this.signupUrl,userBasicDataValues );
 
-    // Merge the extracted values
-    const mergedData = { ...userBasicDataValues, ...userTypeDataValues };
-    console.log("Merged Data :", mergedData);
+  }
 
-    return this.http.post(this.signupUrl, mergedData);
 
+  onSubmit_UserTypeInfo():Observable<any>{
+    const userTypeDataValues = this.userTypeData.value;
+    return this.http.post(this.signupUrl,userTypeDataValues);
   }
 }

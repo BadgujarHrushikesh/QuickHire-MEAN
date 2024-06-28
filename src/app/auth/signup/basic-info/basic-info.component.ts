@@ -30,7 +30,7 @@ export class BasicInfoComponent implements OnInit {
     hasSymbol: false
   };
 
-  constructor(private router: Router, private fb: FormBuilder, private sigupService: SignupService) { }
+  constructor(private router: Router, private fb: FormBuilder, private signupService: SignupService) { }
 
   ngOnInit(): void {
     this.user_Basic_info = this.fb.group({
@@ -71,15 +71,35 @@ export class BasicInfoComponent implements OnInit {
     return null;
   }
 
-  signup_basic_info_submit(): void {
+
+  onSubmit(): void {
     if (this.user_Basic_info.valid) {
-      console.log('Step 1 completed ', this.user_Basic_info.value);
-      this.sigupService.setUserBasicData(this.user_Basic_info.value)
+      console.log("Step 1 Completed");
+      console.log(this.user_Basic_info.value);
 
-      this.router.navigate(['auth', 'signup', 'user-info']);
+      this.signupService.setUserBasicData(this.user_Basic_info.value)
+      this.signupService.submitData().subscribe(
+        response => {
+          console.log('Data submitted successfully:', response);
+          window.alert("Signup Suceesfull, Please Login..!😄 ")
+          this.router.navigate(['auth', 'signup', 'user-info']);
 
+        },
+        error => {
+          console.error('Error submitting data:', error.error.message);
+          alert(error.error.message)
+        }
+      );
+
+
+    } else {
+      console.log('Form is invalid');
+      window.alert("All fields are required")
     }
   }
+
+
+
 
 
   signin(event: Event) {

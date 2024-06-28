@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgClass, NgIf, NgFor, CommonModule } from '@angular/common';
 import { SignupService } from '../../../Services/signup.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-user-type',
@@ -17,7 +19,7 @@ export class UserTypeComponent implements OnInit {
   user_type_info!: FormGroup;
   user_basic_data: any = {}
 
-  constructor(private fb: FormBuilder, public signupService: SignupService) { }
+  constructor(private fb: FormBuilder, public signupService: SignupService, private router: Router) { }
 
   ngOnInit(): void {
     this.user_type_info = this.fb.group({
@@ -114,21 +116,21 @@ export class UserTypeComponent implements OnInit {
 
   onSubmit(): void {
     if (this.user_type_info.valid) {
-      console.log("Step 2 Completed");
       console.log(this.user_type_info.value);
 
-
-      
       this.signupService.setUserTypeData(this.user_type_info);
-      this.signupService.setUserBasicData(this.user_basic_data)
-      this.signupService.submitData().subscribe(
+      this.signupService.onSubmit_UserTypeInfo().subscribe(
         response => {
           console.log('Data submitted successfully:', response);
+          window.alert("Signup Suceesfull, Please Login..!😄 ")
+          this.router.navigate(['auth', 'login'])
         },
         error => {
-          console.error('Error submitting data:', error);
+          console.error('Error submitting data:', error.error.message);
+          alert(error.error.message)
         }
       );
+
 
     } else {
       console.log('Form is invalid');

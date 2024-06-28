@@ -33,8 +33,18 @@
                             Passwords do not match.
                         </div>
                     </div>
+
+                    <!-- <div class="mb-3 form-check">
+                        <input formControlName="agreeTerms" type="checkbox" class="form-check-input" id="agreeTerms">
+                        <label class="form-check-label" for="agreeTerms"> I agreeTerms to the <a
+                                href="https://www.termsfeed.com/blog/terms-conditions-url/">Terms and Conditions</a> and
+                            <a href="https://www.freeprivacypolicy.com/blog/privacy-policy-url/">Privacy
+                                Policy</a></label>
+                    </div> -->
+
                     <div class="text-center">
-                        <button type="button" class="btn btn-color px-5 mb-2 w-100" (click)="signup_basic_info_submit()">Next</button>
+                        <button type="button" class="btn btn-color px-5 mb-2 w-100" (click)="onSubmit()">Submit</button>
+                        <!-- <button type="button" class="btn btn-color px-5 mb-2 w-100" (click)="signup_basic_info_submit()">Next</button> -->
                     </div>
                     <div class="form-text text-center mb-2 text-dark">
                         Already Registered? <a  class="text-dark fw-bold" (click)="signin($event)"> Sign In</a>
