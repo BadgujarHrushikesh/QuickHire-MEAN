@@ -122,7 +122,7 @@ export class UserTypeComponent implements OnInit {
       this.signupService.onSubmit_UserTypeInfo().subscribe(
         response => {
           console.log('Data submitted successfully:', response);
-          window.alert("Signup Suceesfull, Please Login..!😄 ")
+          window.alert("Your Account has Been Successfuly Created, Please Login..!😄 ")
           this.router.navigate(['auth', 'login'])
         },
         error => {

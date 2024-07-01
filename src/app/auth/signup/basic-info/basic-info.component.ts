@@ -81,7 +81,8 @@ export class BasicInfoComponent implements OnInit {
       this.signupService.submitData().subscribe(
         response => {
           console.log('Data submitted successfully:', response);
-          window.alert("Signup Suceesfull, Please Login..!😄 ")
+          window.alert("Fiil the Next Information to Modify Your Account..!😄 ")
+          
           this.router.navigate(['auth', 'signup', 'user-info']);
 
         },

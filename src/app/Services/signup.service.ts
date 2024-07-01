@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { log } from 'node:console';
 import { Observable } from 'rxjs';
 
 
@@ -10,12 +11,13 @@ import { Observable } from 'rxjs';
 export class SignupService {
 
   private userBasicData: any = {};
-  private userTypeData: any = {}
+  private userTypeData: any = {};
+  private userProfile: any = {}
 
   // private ok = true
 
   private signupUrl = 'http://localhost:8000/api/auth/signUp'
-  // private signupUrl = 'http://localhost:4200/api/signup'
+  private createProfile = 'http://localhost:8000/api/my-account/profile'
 
   constructor(private http: HttpClient) { }
 
@@ -37,21 +39,31 @@ export class SignupService {
     return this.userTypeData;
   }
 
-
+  getProfile() : any {
+    const {name,email} = this.getUserBasicData()
+    const userTypeDataValues = this.userTypeData.value;
+    const createProfile = {
+      name,
+      email,
+      ...userTypeDataValues,
+    };
   
-
-
-  submitData(): Observable<any> {
-   
-    const userBasicDataValues = this.userBasicData;
-    console.log("userBasicDataValues aaaa = ", userBasicDataValues);
-    return this.http.post(this.signupUrl,userBasicDataValues );
-
+    return createProfile;
   }
 
 
-  onSubmit_UserTypeInfo():Observable<any>{
-    const userTypeDataValues = this.userTypeData.value;
-    return this.http.post(this.signupUrl,userTypeDataValues);
+
+    submitData(): Observable<any> {
+      const userBasicDataValues = this.userBasicData;
+      console.log("userBasicDataValues aaaa = ", userBasicDataValues);
+      return this.http.post(this.signupUrl, userBasicDataValues);
+    }
+
+
+  onSubmit_UserTypeInfo(): Observable<any> {
+    const userTypeDataValues = this.getProfile();
+    console.log("SEND TO BACKEND PROFILE : ",userTypeDataValues);
+    
+    return this.http.post(this.createProfile, userTypeDataValues);
   }
 }
