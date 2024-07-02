@@ -54,19 +54,19 @@ export const routes: Routes = [
         }]
     },
     {
-        path: 'my-account/:userId',  //dynamic id each user
+        path: 'my-account',
         component: MyAccountComponent,
         children: [{
-            path: 'profile',
+            path: 'profile/:userId',
             component: ProfileComponent
         }, {
-            path: 'setting',
+            path: 'setting/:userId',
             component: SettingComponent
         }, {
-            path: 'my-jobs',
+            path: 'my-jobs/:userId',
             component: MyJobsComponent
         }, {
-            path: 'edit-profile',
+            path: 'edit-profile/:userId',
             component: CreateEditProfileComponent
         }
         ]

@@ -51,22 +51,22 @@ export class NavbarComponent {
   // My account only enable when user will logged in
   profile(event: Event): void {
     event.preventDefault()
-    this.router.navigate(['my-account', this.userId, 'profile'])
+    this.router.navigate(['my-account', 'profile', this.userId])
 
   }
   setting(event: Event): void {
     event.preventDefault()
-    this.router.navigate(['my-account', this.userId, 'setting'])
+    this.router.navigate(['my-account', 'setting', this.userId])
 
   }
   myjobs(event: Event): void {
     event.preventDefault()
-    this.router.navigate(['my-account', this.userId, 'my-jobs'])
+    this.router.navigate(['my-account', 'my-jobs', this.userId])
 
   }
   signout(event: Event): void {
     event.preventDefault()
-    this.router.navigate(['my-account', this.userId, 'signout'])
+    this.router.navigate(['my-account', 'signout', this.userId])
     // the logic about cookie expiration will came here or remove seecion or local storage 
   }
 

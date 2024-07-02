@@ -1,8 +1,32 @@
-/* Webpixels CSS */
-/* Utility and component-centric Design System based on Bootstrap for fast, responsive UI development */
-/* URL: https://github.com/webpixels/css */
 
-@import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.profile-header img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+.card {
+    margin-bottom: 20px;
+}
 
-/* Bootstrap Icons */
-@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+
+
+.skills-list {
+    display: flex; /* Make the list items display horizontally */
+    flex-wrap: wrap; /* Allow items to wrap to multiple lines if needed */
+    list-style: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+  }
+  
+  .skills-list li {
+    margin: 5px; /* Add spacing between skills */
+    padding: 5px 10px; /* Add padding to each skill */
+    border: 1px solid #ccc; /* Add a border for visual separation (optional) */
+    border-radius: 5px; /* Add rounded corners (optional) */
+    background-color: #eee; /* Add a light background color (optional) */
+  }
+  

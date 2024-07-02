@@ -6,14 +6,13 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [FooterComponent,NgIf],
+  imports: [NgIf],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
-  public userType : String = ""
-  // 'Job Hunter', 'Employer', 'Company'
+  public userType: String = "Job Hunter"
 
+  constructor() { }
 
-  constructor (){}
 }
