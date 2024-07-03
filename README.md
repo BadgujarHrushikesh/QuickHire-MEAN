@@ -7,6 +7,22 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 QuickHire is a job portal built with Angular that aims to streamline the job search and application process. The platform allows job seekers to create profiles, upload resumes, and search for job openings based on various criteria. Employers can post job listings, review applications, and manage their hiring processes. The project incorporates modern web development practices and features a responsive design to ensure a seamless experience across all devices. QuickHire also includes robust form validation and data management to provide a secure and efficient user experience.
 
+## Technology Used
+
+- **Frontend:**
+  - Angular
+  - HTML
+  - CSS
+  - Bootstrap
+
+- **Backend:**
+  - Node.js
+  - Express
+
+- **Database:**
+  - MongoDB
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
