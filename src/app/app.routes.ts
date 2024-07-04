@@ -58,7 +58,8 @@ export const routes: Routes = [
         component: MyAccountComponent,
         children: [{
             path: 'profile/:userId',
-            component: ProfileComponent
+            component: ProfileComponent,
+            data: { ngSkipHydration: true }
         }, {
             path: 'setting/:userId',
             component: SettingComponent

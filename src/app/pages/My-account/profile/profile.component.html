@@ -161,10 +161,12 @@
         <div class="card-body">
           <table class="table table-hover">
             <thead>
-              <th>#</th>
-              <th>Job ID</th>
-              <th>Job Title</th>
-              <th>Reply</th>
+              <tr>
+                <th>#</th>
+                <th>Job ID</th>
+                <th>Job Title</th>
+                <th>Reply</th>
+              </tr>
             </thead>
             <tbody>
               <tr>
@@ -174,7 +176,7 @@
                 <td>
                   <button class="btn btn-primary">Reply</button>
                   <button class="btn btn-warning ms-2">Details</button>
-                
+
                 </td>
               </tr>
 
@@ -204,3 +206,106 @@
     </div> -->
   </div>
 </div>
+
+
+
+
+<!-- only for Company and Hr -->
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#jobPostModal">
+  Post Job
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="jobPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Post a Job</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form ngSkipHydration novalidate>
+          <div class="mb-3">
+            <label for="jobId" class="form-label">Job ID</label>
+            <input type="text" class="form-control" id="jobId" placeholder="Job ID" required>
+          </div>
+          <div class="mb-3">
+            <label for="jobTitle" class="form-label">Job Title</label>
+            <input type="text" class="form-control" id="jobTitle" placeholder="Job Title" required>
+          </div>
+          <div class="mb-3">
+            <label for="experience" class="form-label">Experience</label>
+            <input type="number" class="form-control" id="experience" placeholder="In Years Example., 2-5 " required>
+          </div>
+
+          <div class="mb-3">
+            <label for="jobDescription" class="form-label">Job Description</label>
+            <textarea class="form-control" id="jobDescription" rows="4" required></textarea>
+          </div>
+
+
+
+          <div class="mb-3">
+            <label for="Skills" class="form-label">Skills</label>
+            <tag-input class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="items"
+              (ngModelChange)="onItemsChange($event)" placeholder="Add a skill" secondaryPlaceholder=" + Add A Skill">
+            </tag-input>
+
+
+          </div>
+
+
+
+
+
+
+          <!-- <div class="mb-3">
+            <label for="jobLocation" class="form-label">Job Location</label>
+            <input type="text" class="form-control" id="jobLocation" placeholder="" required>
+          </div> -->
+
+          <div class="mb-3">
+            <label for="jobLocation" class="form-label">Job Location</label>
+            <select class="form-select" id="jobLocation" required>
+              <option disabled selected>Select Location...</option>
+              <option value="Pune">Pune, Maharashtra</option>
+              <option value="Mumbai">Mumbai, Maharashtra</option>
+              <option value="Bengaluru">Bengaluru, Karnataka</option>
+              <option value="Chennai">Chennai, Tamilnadu</option>
+              <option value="Hyderabad">Hyderabad, Telangana</option>
+              <option value="Delhi">Delhi, NCR</option>
+
+            </select>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="salary" class="form-label">Salary</label>
+            <input type="text" class="form-control" id="salary" placeholder="" required>
+          </div>
+          <div class="mb-3">
+            <label for="employmentType" class="form-label">Employment Type</label>
+            <select class="form-select" id="employmentType" required>
+              <option disabled selected>Select...</option>
+              <option value="Full-time">Full-time</option>
+              <option value="Part-time">Part-time</option>
+              <option value="Contract">Contract</option>
+              <option value="Temporary">Temporary</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary me-4">Post</button>
+          <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- skills tag -->
+<!-- <tag-input [ngModelOptions]="{standalone: true}" [(ngModel)]="items" (ngModelChange)="onItemsChange($event)"
+  placeholder="Add a skill" secondaryPlaceholder=" + Add A Skill">
+</tag-input> -->
