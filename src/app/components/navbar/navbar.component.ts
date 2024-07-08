@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../../Services/login.service';
 
+import { DoCheck, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +19,8 @@ export class NavbarComponent implements OnInit {
 
   public userId: Number = 123 // this now only for defining route came from backend with cookies when login will implement
 
-  constructor(private router: Router, public loginService: LoginService) { }
+  constructor(private router: Router, public loginService: LoginService, @Inject(DOCUMENT) private document: Document) {
+  }
 
 
   ngOnInit() {
@@ -27,6 +30,27 @@ export class NavbarComponent implements OnInit {
       // Perform any other actions based on the login status
     })
   }
+
+
+  ngDoCheck() {
+    this.checkSessionStorage();
+  }
+
+  checkSessionStorage(): void {
+    const storedData = window.localStorage.getItem('isLogin');
+    if (storedData) {
+      const parsedData = JSON.parse(storedData);
+      this.isLogin = parsedData.isLogin;
+      console.log("isLogin value:", this.isLogin);
+    } else {
+      this.isLogin = false;
+    }
+  }
+
+
+
+
+
 
   login(): void {
     this.router.navigate(['auth', 'login'])
@@ -92,8 +116,8 @@ export class NavbarComponent implements OnInit {
   }
 
   private clearLocalStorage(): void {
-    localStorage.removeItem('auth_token'); // Replace with actual token key
-    localStorage.removeItem('user_data');  // Replace with actual user data key
+    localStorage.removeItem('isLogin'); // Replace with actual token key
+    localStorage.removeItem('loginResponse');  // Replace with actual user data key
     // ... Remove other relevant keys
   }
 
