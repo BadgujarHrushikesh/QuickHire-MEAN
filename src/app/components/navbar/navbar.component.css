@@ -12,3 +12,8 @@
   .dropdown-item:hover {
     cursor: pointer; /* Change to your desired cursor style */
   }
+
+  .nav-link {
+    cursor: pointer;
+  }
+  

@@ -4,6 +4,8 @@ import { NgClass, NgIf, NgFor, CommonModule } from '@angular/common';
 import { SignupService } from '../../../Services/signup.service';
 import { Router } from '@angular/router';
 
+import { isPlatformBrowser } from '@angular/common';
+import { Inject, PLATFORM_ID } from '@angular/core';
 
 @Component({
   selector: 'app-user-type',
@@ -19,9 +21,17 @@ export class UserTypeComponent implements OnInit {
   user_type_info!: FormGroup;
   user_basic_data: any = {}
 
-  constructor(private fb: FormBuilder, public signupService: SignupService, private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    public signupService: SignupService,
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) { }
 
   ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+    }
+
     this.user_type_info = this.fb.group({
       userType: ['', Validators.required],
     });
@@ -122,7 +132,7 @@ export class UserTypeComponent implements OnInit {
       this.signupService.onSubmit_UserTypeInfo().subscribe(
         response => {
           console.log('Data submitted successfully:', response);
-          window.alert("Your Account has Been Successfuly Created, Please Login..!😄 ")
+          // window.alert("Your Account has Been Successfuly Created, Please Login..!😄 ")
           this.router.navigate(['auth', 'login'])
         },
         error => {
@@ -134,7 +144,7 @@ export class UserTypeComponent implements OnInit {
 
     } else {
       console.log('Form is invalid');
-      window.alert("All fields are required")
+      // window.alert("All fields are required")
     }
   }
 }

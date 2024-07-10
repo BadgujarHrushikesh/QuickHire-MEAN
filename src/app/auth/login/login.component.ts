@@ -3,40 +3,54 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../../Services/login.service';
 import { LoginCredentials } from '../../model/LoginCredentials'
+import { isPlatformBrowser } from '@angular/common';
+import { Inject, PLATFORM_ID } from '@angular/core';
 
-
-import { DOCUMENT } from '@angular/common';
-import { Inject } from '@angular/core';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [FormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
+
+  
 })
 export class LoginComponent implements OnInit {
+
   public email: string = "";
   public password: string = "";
   public isLogin!: boolean;
   public jwtToken: string = "";
 
+  public window: Window | null = null;
 
-  constructor(private router: Router, public loginService: LoginService, @Inject(DOCUMENT) private document: Document) {
+
+  constructor(
+    private router: Router, 
+    public loginService: LoginService,
+    @Inject(PLATFORM_ID) private platformId: Object
+   ) {
 
     window.onload = () => {
-      const storedData = window.sessionStorage.getItem('isLogin');
+      const storedData = window.localStorage.getItem('isLogin');
       if (storedData) {
         this.isLogin = JSON.parse(storedData);
-        console.log("From session storage:", this.isLogin);
+        console.log("From Local storage:", this.isLogin);
       }
     };
   }
 
+
+
+  
+
+
   ngOnInit() {
-
+    if (isPlatformBrowser(this.platformId)) {
+      this.window = window;
+    }
   }
-
 
 
 

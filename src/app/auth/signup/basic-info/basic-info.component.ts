@@ -3,8 +3,10 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ValidationErrors, ReactiveFormsModule } from '@angular/forms';
 import { NgClass, NgIf } from '@angular/common';
 import { SignupService } from '../../../Services/signup.service';
-import { response } from 'express';
-import { error } from 'console';
+
+import { isPlatformBrowser } from '@angular/common';
+import { Inject, PLATFORM_ID } from '@angular/core';
+
 
 interface PasswordValidation {
   hasNumber: boolean;
@@ -30,9 +32,21 @@ export class BasicInfoComponent implements OnInit {
     hasSymbol: false
   };
 
-  constructor(private router: Router, private fb: FormBuilder, private signupService: SignupService) { }
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private signupService: SignupService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) { }
+
+
 
   ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+    }
+
+
+
     this.user_Basic_info = this.fb.group({
       // id: [''],
       name: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^([^0-9]*)$')]],
@@ -81,8 +95,8 @@ export class BasicInfoComponent implements OnInit {
       this.signupService.submitData().subscribe(
         response => {
           console.log('Data submitted successfully:', response);
-          window.alert("Fiil the Next Information to Modify Your Account..!😄 ")
-          
+          // window.alert("Fiil the Next Information to Modify Your Account..!😄 ")
+
           this.router.navigate(['auth', 'signup', 'user-info']);
 
         },
@@ -95,7 +109,7 @@ export class BasicInfoComponent implements OnInit {
 
     } else {
       console.log('Form is invalid');
-      window.alert("All fields are required")
+      // window.alert("All fields are required")
     }
   }
 
