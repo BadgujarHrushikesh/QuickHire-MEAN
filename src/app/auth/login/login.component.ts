@@ -71,15 +71,15 @@ export class LoginComponent implements OnInit {
     this.loginService.setLoginData(loginCredentials); // Call service method
     console.log('Login credentials sent to service:', loginCredentials); // Optional for debugging
 
-    this.loginService.submitData().subscribe(
+    this.loginService.submitData(this.email,this.password).subscribe(
       response => {
-        window.localStorage.setItem('loginResponse', JSON.stringify(response));
-        window.localStorage.setItem('isLogin', JSON.stringify({ 'isLogin': response.success }));
-
+        window.localStorage.setItem('loginResponse', JSON.stringify(response.body));
+        // window.localStorage.setItem('isLogin', JSON.stringify({ 'isLogin': response.success }));
+        window.localStorage.setItem('isLogin', JSON.stringify({ isLogin: response.body.success }));
 
         // this.LoginResponce = response;
 
-        console.log('Data submitted successfully:', response.success);
+        // console.log('Data submitted successfully:', response.success);
         window.alert("Login Succesfull..!😄 ")
 
         // this.userType = sessionStorage.getItem(JSON.parse('loginResponse').success.value)
@@ -89,14 +89,27 @@ export class LoginComponent implements OnInit {
         const a = localStorage.getItem('isLogin');
         if (a !== null) {
           const parsedObject = JSON.parse(a);
-          console.log(typeof parsedObject.isLogin, "Value of isLogin =", parsedObject.isLogin);
+          console.log(typeof parsedObject.isLogin, 'Value of isLogin =', parsedObject.isLogin);
         } else {
-          console.log("isLogin is null.");
+          console.log('isLogin is null.');
         }
         
-        this.isLogin = response.success;
+        // this.isLogin = response.success;
         this.loginService.setAppLogin(this.isLogin)
 
+
+
+        // Extract and set cookie
+        const setCookieHeader = response.headers.get('Set-Cookie');
+        if (setCookieHeader) {
+          // Parse the Set-Cookie header to get the token
+          const tokenMatch = setCookieHeader.match(/token=([^;]+)/);
+          if (tokenMatch) {
+            const token = tokenMatch[1];
+            // Set the cookie in document.cookie
+            document.cookie = `token=${token}; max-age=86400; path=/; HttpOnly; Secure; SameSite=Strict`;
+          }
+        }
 
 
         this.router.navigate(['app', 'home'])

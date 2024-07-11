@@ -1,0 +1,14 @@
+<div *ngIf="Data.length > 0; else noData">
+    <p *ngFor="let job of Data">
+      <b>Job Title</b>: {{ job.jobTitle }} <br>
+     <b> Experience</b>: {{ job.Experiance }} <br>
+     <b> Description</b>: {{ job.jobDescription }} <br>
+      <b>Skills</b>: {{ job.skillSets.join(', ') }} <br>
+      <b>Location</b>: {{ job.jobLocation }} <br>
+      <b>Salary</b>: {{ job.salary }}
+    </p>
+  </div>
+  <ng-template #noData>
+    <p>No jobs available.</p>
+  </ng-template>
+  

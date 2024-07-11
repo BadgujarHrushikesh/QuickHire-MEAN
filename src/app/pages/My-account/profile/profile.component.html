@@ -234,10 +234,22 @@
             <label for="jobTitle" class="form-label">Job Title</label>
             <input type="text" class="form-control" id="jobTitle" placeholder="Job Title" required>
           </div>
+          
+
+
           <div class="mb-3">
             <label for="experience" class="form-label">Experience</label>
-            <input type="number" class="form-control" id="experience" placeholder="In Years Example., 2-5 " required>
+            <select class="form-select" id="experience" required>
+              <option disabled selected>Select Experience Level...</option>
+              <option value="Fresher" >Fresher (less than 1 Year)</option>
+              <option value="0-2" >0-2 Years</option>
+              <option value="2-5" >2-5 Years</option>
+              <option value="5-10" >5-10 Years</option>
+              <option value="10+" >More Than 10 Years</option>
+            </select>
           </div>
+
+        
 
           <div class="mb-3">
             <label for="jobDescription" class="form-label">Job Description</label>

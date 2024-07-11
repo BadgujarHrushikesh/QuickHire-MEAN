@@ -44,7 +44,7 @@
 
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -74,35 +74,21 @@ export class LoginService {
     return this.isLogin.value;
   }
 
-  // updateLoginStatus(status: boolean): void {
-  //   this.isLogin.next(status);
+
+  // submitData(): Observable<any> {
+  //   console.log("Login Data:", this.userloginData);
+  //   return this.http.post(this.LoginURL, this.userloginData);
   // }
 
 
+  submitData(email: string, password: string): Observable<HttpResponse<any>> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const body = JSON.stringify({ email, password });
 
-
-   // const token = localStorage.getItem('jwtToken');
-
-  //   makeAuthenticatedRequest = async (url, data) => {
-  //   try {
-  //     const response = await axios.post(url, data, {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`
-  //       }
-  //     });
-  //     return response.data;
-  //   } catch (error) {
-  //     console.error(error);
-  //     // Handle errors appropriately, e.g., redirect to login if unauthorized
-  //   }
-  // };
-
-
-
-
-
-  submitData(): Observable<any> {
-    console.log("Login Data:", this.userloginData);
-    return this.http.post(this.LoginURL, this.userloginData);
+    return this.http.post<any>(this.LoginURL, body, {
+      headers: headers,
+      observe: 'response',// To get the full response including headers
+      withCredentials: true
+    });
   }
 }
