@@ -3,6 +3,8 @@ import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../../Services/login.service';
 import { isPlatformBrowser } from '@angular/common';
+// import Cookies from 'js-cookie';
+
 
 @Component({
   selector: 'app-navbar',
@@ -14,17 +16,18 @@ import { isPlatformBrowser } from '@angular/common';
 export class NavbarComponent implements OnInit {
   public isLogin: boolean = false;
   public window: Window | null = null;
+  // public jwtAuthTokenPresent: boolean = false;
 
   constructor(
     private router: Router,
     public loginService: LoginService,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  ) { }
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.window = window;
-      this.checkLocalStorage();
+      this.checkLocalStorageandCookie();
     }
 
     // Subscribe to the login status changes
@@ -35,16 +38,21 @@ export class NavbarComponent implements OnInit {
 
   ngDoCheck() {
     if (isPlatformBrowser(this.platformId)) {
-      this.checkLocalStorage();
+      this.checkLocalStorageandCookie();
     }
   }
 
-  checkLocalStorage(): void {
+  checkLocalStorageandCookie(): void {
     if (this.window) {
       const storedData = this.window.localStorage.getItem('isLogin');
+      console.log(storedData)
+      // this.jwtAuthTokenPresent = Cookies.get('auth_token') !== undefined;
+      // console.log("JWT = ",this.jwtAuthTokenPresent);
+
       if (storedData) {
         const parsedData = JSON.parse(storedData);
-        this.isLogin = parsedData.isLogin;
+        // this.isLogin = (parsedData.isLogin && this.jwtAuthTokenPresent) ;
+        this.isLogin = (parsedData.isLogin ) ;
         console.log("isLogin value:", this.isLogin);
       } else {
         this.isLogin = false;

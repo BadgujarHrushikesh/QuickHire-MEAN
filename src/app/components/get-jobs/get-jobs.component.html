@@ -1,4 +1,4 @@
-<div *ngIf="Data.length > 0; else noData">
+<!-- <div *ngIf="Data.length > 0; else noData">
     <p *ngFor="let job of Data">
       <b>Job Title</b>: {{ job.jobTitle }} <br>
      <b> Experience</b>: {{ job.Experiance }} <br>
@@ -10,5 +10,41 @@
   </div>
   <ng-template #noData>
     <p>No jobs available.</p>
+  </ng-template> -->
+
+  <div class="container my-4">
+    <h3 class="text-center mb-4">Explore top job opportunities handpicked just for you...!</h3>
+  
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Job Id</th>
+            <th scope="col">Job Title</th>
+            <th scope="col">Experience</th>
+            <th scope="col">Location</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let job of Data; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ job.jobTitle }}</td>
+            <td>{{ job.Experiance }}</td>
+            <td>{{ job.jobLocation }}</td>
+            <td>{{ job.salary }}</td>
+            <td>
+              <button class="btn btn-success">View</button>
+              <button class="ms-2 btn btn-warning">Apply</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <ng-template #noData>
+    <p class="text-center mt-4">No jobs available.</p>
   </ng-template>
   
