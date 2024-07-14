@@ -17,6 +17,8 @@ import { MyJobsComponent } from './pages/My-account/my-jobs/my-jobs.component';
 import { CreateEditProfileComponent } from './pages/My-account/create-edit-profile/create-edit-profile.component';
 import { BasicInfoComponent } from './auth/signup/basic-info/basic-info.component';
 import { UserTypeComponent } from './auth/signup/user-type/user-type.component';
+import { AskEmailComponent } from './auth/forget-password/ask-email/ask-email.component';
+import { ResetPasswordComponent } from './auth/forget-password/reset-password/reset-password.component';
 
 
 export const routes: Routes = [
@@ -46,7 +48,21 @@ export const routes: Routes = [
         },
         {
             path: 'forget-password',
-            component: ForgetPasswordComponent
+            component: ForgetPasswordComponent,
+            children: 
+            [
+                {
+                    path: "askEmail",
+                    component: AskEmailComponent
+                },
+                {
+                    path: 'resetPassword',
+                    component: ResetPasswordComponent
+                },{
+                    path: '**',
+                    redirectTo: "askEmail"
+                }
+            ]
         },
         {
             path: '**',
