@@ -1,50 +1,83 @@
-<!-- <div *ngIf="Data.length > 0; else noData">
-    <p *ngFor="let job of Data">
-      <b>Job Title</b>: {{ job.jobTitle }} <br>
-     <b> Experience</b>: {{ job.Experiance }} <br>
-     <b> Description</b>: {{ job.jobDescription }} <br>
-      <b>Skills</b>: {{ job.skillSets.join(', ') }} <br>
-      <b>Location</b>: {{ job.jobLocation }} <br>
-      <b>Salary</b>: {{ job.salary }}
-    </p>
-  </div>
-  <ng-template #noData>
-    <p>No jobs available.</p>
-  </ng-template> -->
+<div class="container my-4">
+  <h3 class="text-center mb-4">Explore top job opportunities handpicked just for you...!</h3>
 
-  <div class="container my-4">
-    <h3 class="text-center mb-4">Explore top job opportunities handpicked just for you...!</h3>
-  
-    <div class="table-responsive">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Job Id</th>
-            <th scope="col">Job Title</th>
-            <th scope="col">Experience</th>
-            <th scope="col">Location</th>
-            <th scope="col">Salary</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let job of Data; let i = index">
-            <th scope="row">{{ i + 1 }}</th>
-            <td>{{ job.jobTitle }}</td>
-            <td>{{ job.Experiance }}</td>
-            <td>{{ job.jobLocation }}</td>
-            <td>{{ job.salary }}</td>
-            <td>
-              <button class="btn btn-success">View</button>
-              <button class="ms-2 btn btn-warning">Apply</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Job Id</th>
+          <th scope="col">Job Title</th>
+          <th scope="col">Experience</th>
+          <th scope="col">Location</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let job of Data; let i = index">
+          <th scope="row">{{ job.jobId }}</th>
+          <td>{{ job.jobTitle }}</td>
+          <td>{{ job.Experiance }}</td>
+          <td>{{ job.jobLocation }}</td>
+          <td>{{ job.salary }}</td>
+          <td>
+            <!-- <button class="btn btn-success">View</button> -->
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              (click)="openJobDetailsModal(job)">
+              View
+            </button>
+
+            <button class="ms-2 btn btn-warning">Apply</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ng-template #noData>
+  <p class="text-center mt-4">No jobs available.</p>
+</ng-template>
+
+
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Job Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <ng-container *ngIf="selectedJob; else loading">
+         
+            <strong>Job Title:</strong> {{ selectedJob.jobTitle }}<br />
+            <strong>Experience:</strong> {{ selectedJob.Experiance }}<br />
+            <strong>Description:</strong>
+          <div class="job-description">{{ selectedJob.jobDescription }}</div><br />
+          <strong>Skills:</strong>
+          <div class="skills-container">
+            <span class="chip" *ngFor="let skill of selectedJob.skillSets">{{ skill }}</span>
+          </div>
+          <br />
+          <strong>Location:</strong> {{ selectedJob.jobLocation }}<br />
+          <strong>Salary:</strong> {{ selectedJob.salary }}<br />
+        
+        </ng-container>
+        <ng-template #loading>
+          <p>Loading job details...</p>
+        </ng-template>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Apply Now</button>
+      </div>
     </div>
   </div>
-  
-  <ng-template #noData>
-    <p class="text-center mt-4">No jobs available.</p>
-  </ng-template>
-  
+</div>

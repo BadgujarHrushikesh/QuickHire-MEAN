@@ -25,4 +25,11 @@ export class GetJobsComponent implements OnInit {
       }
     );
   }
+
+
+  
+  selectedJob: any | null = null;
+  openJobDetailsModal(job: any) {
+    this.selectedJob = job;
+  }
 }

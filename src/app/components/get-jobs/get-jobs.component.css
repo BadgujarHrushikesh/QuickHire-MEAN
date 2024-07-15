@@ -1,0 +1,30 @@
+
+.job-description {
+    margin-top: 5px;
+    line-height: 1.5; /* Increases the line height for better readability */
+    white-space: pre-wrap; /* Preserves white spaces and line breaks */
+    word-wrap: break-word; /* Ensures long words are wrapped properly */
+  }
+  
+
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px; /* Space between chips */
+    margin-top: 5px;
+  }
+  
+  .chip {
+    background-color: #f1f1f1;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    padding: 5px 10px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  
