@@ -13,22 +13,31 @@ import { ForgetPasswordService } from '../../../Services/forget-password.service
 })
 export class AskEmailComponent {
   public email: string = "";
+  public passwordToken: string = "";
 
   constructor(
-    private router : Router,
+    private router: Router,
     public passwordServices: ForgetPasswordService
-  ){}
+  ) { }
 
   onSubmit(): void {
     console.log(this.email);
 
     this.passwordServices.setEmailToCheck(this.email)
     this.passwordServices.submitEmail(this.email).subscribe(
-      response=>{
-        console.log(response);
+      response => {
+        this.passwordToken = response.token;
+        console.log(this.passwordToken);
+
+        if (response.success) {
+          this.router.navigate(['auth', 'forget-password', 'resetPassword'])
+        } else{
+          window.alert('Error During Login:' + response.message);
+
+        }
 
       },
-      error=>{
+      error => {
         console.error('Error During Login:', error.message);
       }
     )
