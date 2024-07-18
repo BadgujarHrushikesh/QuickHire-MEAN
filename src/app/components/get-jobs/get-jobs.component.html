@@ -56,17 +56,32 @@
       <div class="modal-body">
         <ng-container *ngIf="selectedJob; else loading">
          
+            <h5 class="text-center" ><strong>QuickHire Corporation Inc.</strong> </h5>
+            <hr>
             <strong>Job Title:</strong> {{ selectedJob.jobTitle }}<br />
             <strong>Experience:</strong> {{ selectedJob.Experiance }}<br />
+            <strong>Job Type:</strong>Full Time<br />
+
             <strong>Description:</strong>
-          <div class="job-description">{{ selectedJob.jobDescription }}</div><br />
-          <strong>Skills:</strong>
+            <div class="job-description">{{ selectedJob.jobDescription }}</div><br />
+            <strong>Skills:</strong>
           <div class="skills-container">
             <span class="chip" *ngFor="let skill of selectedJob.skillSets">{{ skill }}</span>
           </div>
           <br />
           <strong>Location:</strong> {{ selectedJob.jobLocation }}<br />
           <strong>Salary:</strong> {{ selectedJob.salary }}<br />
+         
+          <hr>
+          
+          <strong>Job Posted:</strong> {{ selectedJob.createdAt | customDate }}<br />
+          <strong>Last Date :</strong> {{ selectedJob.createdAt | customDate }}<br />
+          <strong>Posted By :</strong> ABC Company / HR Name<br />
+         
+    
+          
+
+        
         
         </ng-container>
         <ng-template #loading>
@@ -74,6 +89,7 @@
         </ng-template>
       </div>
 
+      
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Apply Now</button>

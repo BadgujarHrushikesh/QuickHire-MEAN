@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { JobsService } from '../../Services/jobs.service';
 import { NgFor, NgIf } from '@angular/common';
+import { CustomDatePipe } from '../../pipes/custom-date.pipe';
 
 @Component({
   selector: 'app-get-jobs',
   standalone: true,
-  imports: [NgIf,NgFor],
+  imports: [NgIf,NgFor,CustomDatePipe],
   templateUrl: './get-jobs.component.html',
   styleUrl: './get-jobs.component.css'
 })
